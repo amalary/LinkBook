@@ -12,9 +12,13 @@ const AuthenRoutes = require("./Routes/authen")
 
 dotenv.config(); 
 
-mongoose.connect(process.env.MONGO_URL, () => {
+mongoose.connect(process.env.MONGO_URL,() => {
+
+
     console.log('Connected to MONGODB')
 });
+
+
 
 
 // Middleware 
@@ -29,6 +33,7 @@ app.use('/api/user', UserRoutes);
 
 app.use('/api/auth', AuthenRoutes); 
 
+
+
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`); 
-})
+    console.log(`Listening on port ${PORT}`);}); 
