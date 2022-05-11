@@ -31,8 +31,23 @@ router.post('/register', async (req,res) => {
         console.log(err)
 
     }
-
 }); 
+
+// Login 
+
+router.post('/login', async(req,res) => {
+
+    try{
+        const user = await User.findOne({userEmail:req.body.userEmail}); 
+        !user && res.status(404).json('user cannot be found'); 
+
+    }
+    catch(err){
+
+        console.log(err)
+    }
+})
+
 
 module.exports = router; 
 
