@@ -89,6 +89,18 @@ router.put("/:id/like", async (req,res) => {
 
 // Get a Post
 
+router.get("/:id", async (req,res)=>{
+    try{
+        const post = await Post.findById(req.params.id)
+        res.status(200).json(post); 
+
+
+    }catch(err) {
+        res.status(500).json(err)
+
+    }
+})
+
 // Getting Posts from the Timeline 
 
 
