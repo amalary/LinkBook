@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv'); 
 const helmet = require('helmet'); 
 const morgan = require('morgan'); 
-const UserRoutes = require("./Routes/users")
-const AuthenRoutes = require("./Routes/authen")
-
+const UserRoutes = require("./Routes/users");
+const AuthenRoutes = require("./Routes/authen");
+const PostRoutes = require("./Routes/posts")
 
 
 dotenv.config(); 
@@ -33,7 +33,9 @@ app.use('/api/user', UserRoutes);
 
 app.use('/api/auth', AuthenRoutes); 
 
+app.use('/api/posts', PostRoutes);
+
 
 
 app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);}); 
+    console.log(`Listening on port ${PORT}`);});
